@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?><Graph __version="3.5.0" author="Anderson Mendes" created="Tue Jul 21 00:11:30 GMT-03:00 2015" description="Xml&lt;getEntregasNaoConcluidasResponse&gt; To Pojo" guiVersion="3.4.4.P" id="1437517300587" licenseCode="Unlicensed" licenseType="Unknown" modified="Tue Jul 21 00:11:30 GMT-03:00 2015" modifiedBy="Anderson Mendes" name="Xml_getEntregasNaoConcluidasResponse__To_Pojo" revision="1.0" showComponentDetails="false">
+<Global>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{http://service/=ns0}/ns0:getEntregasNaoConcluidasResponse" _dataStructure="OBJECT" _id="__id" _type="Input" id="0e12822a-76d6-4b7a-986f-2f53a3109f24">
+<Record fieldDelimiter="," name="getEntregasNaoConcluidasResponse" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="0" __referenceCounter="2" __sourcePath="{}/list" _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _id="__id" _type="Output" id="fcd0351e-7d9d-4898-917a-43e9516313fb">
+<Record fieldDelimiter="," name="list" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="0" __sourcePath="{}/list/cpf" containerType="SINGLE" label="cpf" name="cpf" type="string"/>
+<Field __index="1" __sourcePath="{}/list/dataCadastro" containerType="SINGLE" label="dataCadastro" name="dataCadastro" type="string"/>
+<Field __index="2" __sourcePath="{}/list/dataEntrega" containerType="SINGLE" label="dataEntrega" name="dataEntrega" type="string"/>
+<Field __index="3" __sourcePath="{}/list/endereco" containerType="SINGLE" label="endereco" name="endereco" type="string"/>
+<Field __index="4" __sourcePath="{}/list/entregador" containerType="SINGLE" label="entregador" name="entregador" type="integer"/>
+<Field __index="5" __sourcePath="{}/list/idEntrega" containerType="SINGLE" label="idEntrega" name="idEntrega" type="integer"/>
+<Field __index="6" __sourcePath="{}/list/idVenda" containerType="SINGLE" label="idVenda" name="idVenda" type="integer"/>
+<Field __index="7" __sourcePath="{}/list/melhorHorario" containerType="SINGLE" label="melhorHorario" name="melhorHorario" type="string"/>
+<Field __index="8" __sourcePath="{}/list/nomeCliente" containerType="SINGLE" label="nomeCliente" name="nomeCliente" type="string"/>
+<Field __index="9" __sourcePath="{}/list/observacao" containerType="SINGLE" label="observacao" name="observacao" type="string"/>
+<Field __index="10" __sourcePath="{}/list/ordemEntrega" containerType="SINGLE" label="ordemEntrega" name="ordemEntrega" type="integer"/>
+<Field __index="11" __sourcePath="{}/list/produto" containerType="SINGLE" label="produto" name="produto" type="string"/>
+<Field __index="12" __sourcePath="{}/list/status" containerType="SINGLE" label="status" name="status" type="string"/>
+<Field __index="13" __sourcePath="{}/list/telefone" containerType="SINGLE" label="telefone" name="telefone" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{http://service/=ns0}/ns0:getEntregasNaoConcluidasResponse/return" _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _id="__id" _metadataParentId="0e12822a-76d6-4b7a-986f-2f53a3109f24" _parent_id="__parent_id" _type="Input" id="0108721c-b6f5-4bdf-8763-e83d3d3b32c3">
+<Record fieldDelimiter="," name="return" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_parent_id" __systemManaged="true" name="__parent_id" type="string"/>
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __implementationClass="java.lang.String" __index="0" __sourcePath="{http://service/=ns0}/ns0:getEntregasNaoConcluidasResponse/return/cpf" containerType="SINGLE" label="cpf" name="cpf" type="string"/>
+<Field __implementationClass="java.lang.String" __index="1" __sourcePath="{http://service/=ns0}/ns0:getEntregasNaoConcluidasResponse/return/dataCadastro" containerType="SINGLE" label="dataCadastro" name="dataCadastro" type="string"/>
+<Field __implementationClass="java.lang.String" __index="2" __sourcePath="{http://service/=ns0}/ns0:getEntregasNaoConcluidasResponse/return/dataEntrega" containerType="SINGLE" label="dataEntrega" name="dataEntrega" type="string"/>
+<Field __implementationClass="java.lang.String" __index="3" __sourcePath="{http://service/=ns0}/ns0:getEntregasNaoConcluidasResponse/return/endereco" containerType="SINGLE" label="endereco" name="endereco" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="4" __sourcePath="{http://service/=ns0}/ns0:getEntregasNaoConcluidasResponse/return/entregador" containerType="SINGLE" label="entregador" name="entregador" type="integer"/>
+<Field __implementationClass="java.lang.Integer" __index="5" __sourcePath="{http://service/=ns0}/ns0:getEntregasNaoConcluidasResponse/return/idEntrega" containerType="SINGLE" label="idEntrega" name="idEntrega" type="integer"/>
+<Field __implementationClass="java.lang.Integer" __index="6" __sourcePath="{http://service/=ns0}/ns0:getEntregasNaoConcluidasResponse/return/idVenda" containerType="SINGLE" label="idVenda" name="idVenda" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="7" __sourcePath="{http://service/=ns0}/ns0:getEntregasNaoConcluidasResponse/return/melhorHorario" containerType="SINGLE" label="melhorHorario" name="melhorHorario" type="string"/>
+<Field __implementationClass="java.lang.String" __index="8" __sourcePath="{http://service/=ns0}/ns0:getEntregasNaoConcluidasResponse/return/nomeCliente" containerType="SINGLE" label="nomeCliente" name="nomeCliente" type="string"/>
+<Field __implementationClass="java.lang.String" __index="9" __sourcePath="{http://service/=ns0}/ns0:getEntregasNaoConcluidasResponse/return/observacao" containerType="SINGLE" label="observacao" name="observacao" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="10" __sourcePath="{http://service/=ns0}/ns0:getEntregasNaoConcluidasResponse/return/ordemEntrega" containerType="SINGLE" label="ordemEntrega" name="ordemEntrega" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="11" __sourcePath="{http://service/=ns0}/ns0:getEntregasNaoConcluidasResponse/return/produto" containerType="SINGLE" label="produto" name="produto" type="string"/>
+<Field __implementationClass="java.lang.String" __index="12" __sourcePath="{http://service/=ns0}/ns0:getEntregasNaoConcluidasResponse/return/status" containerType="SINGLE" label="status" name="status" type="string"/>
+<Field __implementationClass="java.lang.String" __index="13" __sourcePath="{http://service/=ns0}/ns0:getEntregasNaoConcluidasResponse/return/telefone" containerType="SINGLE" label="telefone" name="telefone" type="string"/>
+</Record>
+</Metadata>
+<Dictionary>
+<Entry id="DictionaryEntry0" input="true" name="inputPayload" output="false" type="object"/>
+<Entry id="DictionaryEntry1" input="false" name="outputPayload" output="true" type="object"/>
+</Dictionary>
+</Global>
+<Phase number="0">
+<Node cacheInMemory="true" enabled="enabled" fileURL="dict:outputPayload" guiName="Pojo WRITER" guiX="900" guiY="20" id="BEAN_WRITER0" type="BEAN_WRITER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<clover:collection clover:name="list" xmlns:clover="http://www.cloveretl.com/ns/xmlmapping">
+  <item clover:inPort="0">
+    <cpf>$0.cpf</cpf>
+    <dataCadastro>$0.dataCadastro</dataCadastro>
+    <dataEntrega>$0.dataEntrega</dataEntrega>
+    <endereco>$0.endereco</endereco>
+    <entregador>$0.entregador</entregador>
+    <idEntrega>$0.idEntrega</idEntrega>
+    <idVenda>$0.idVenda</idVenda>
+    <melhorHorario>$0.melhorHorario</melhorHorario>
+    <nomeCliente>$0.nomeCliente</nomeCliente>
+    <observacao>$0.observacao</observacao>
+    <ordemEntrega>$0.ordemEntrega</ordemEntrega>
+    <produto>$0.produto</produto>
+    <status>$0.status</status>
+    <telefone>$0.telefone</telefone>
+  </item>
+  <item clover:inPort="1">
+    <cpf>$1.cpf</cpf>
+    <dataCadastro>$1.dataCadastro</dataCadastro>
+    <dataEntrega>$1.dataEntrega</dataEntrega>
+    <endereco>$1.endereco</endereco>
+    <entregador>$1.entregador</entregador>
+    <idEntrega>$1.idEntrega</idEntrega>
+    <idVenda>$1.idVenda</idVenda>
+    <melhorHorario>$1.melhorHorario</melhorHorario>
+    <nomeCliente>$1.nomeCliente</nomeCliente>
+    <observacao>$1.observacao</observacao>
+    <ordemEntrega>$1.ordemEntrega</ordemEntrega>
+    <produto>$1.produto</produto>
+    <status>$1.status</status>
+    <telefone>$1.telefone</telefone>
+  </item>
+</clover:collection>]]></attr>
+<attr name="_data_format"><![CDATA[JAVA]]></attr>
+<attr name="schema"><![CDATA[<?xml version="1.0" encoding="UTF-8"?><schema-object>
+  <schema-collection>
+    <typed-object-ref type-ref="model.Entrega"/>
+  </schema-collection>
+  <typed-object type="java.lang.String"/>
+  <typed-object type="model.Entrega">
+    <typed-object-ref name="cpf" type-ref="java.lang.String"/>
+    <typed-object-ref name="dataCadastro" type-ref="java.lang.String"/>
+    <typed-object-ref name="dataEntrega" type-ref="java.lang.String"/>
+    <typed-object-ref name="endereco" type-ref="java.lang.String"/>
+    <typed-object-ref name="entregador" type-ref="int"/>
+    <typed-object-ref name="idEntrega" type-ref="int"/>
+    <typed-object-ref name="idVenda" type-ref="int"/>
+    <typed-object-ref name="melhorHorario" type-ref="java.lang.String"/>
+    <typed-object-ref name="nomeCliente" type-ref="java.lang.String"/>
+    <typed-object-ref name="observacao" type-ref="java.lang.String"/>
+    <typed-object-ref name="ordemEntrega" type-ref="int"/>
+    <typed-object-ref name="produto" type-ref="java.lang.String"/>
+    <typed-object-ref name="status" type-ref="java.lang.String"/>
+    <typed-object-ref name="telefone" type-ref="java.lang.String"/>
+  </typed-object>
+  <typed-object type="int"/>
+</schema-object>
+]]></attr>
+</Node>
+<Node enabled="enabled" guiName="Foreach 'ns0:getEntregasNaoConcluidasResponse' -&gt; 'list'" guiX="460" guiY="20" id="FOREACH_NS0_GET_ENTREGAS_NAO_CONCLUIDAS_RESPONSE_LIST" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+//END -> DO NOT REMOVE
+]]></attr>
+</Node>
+<Node enabled="enabled" guiName="Foreach 'return' -&gt; 'list'" guiX="460" guiY="120" id="FOREACH_RETURN_LIST" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+//END -> DO NOT REMOVE
+output.cpf = input.cpf + input.cpf;
+output.dataCadastro = input.dataCadastro;
+output.dataEntrega = input.dataEntrega;
+output.endereco = input.endereco;
+output.entregador = input.entregador;
+output.idEntrega = input.idEntrega;
+output.idVenda = input.idVenda;
+output.melhorHorario = input.melhorHorario;
+output.nomeCliente = input.nomeCliente;
+output.observacao = input.observacao;
+output.ordemEntrega = input.ordemEntrega;
+output.produto = input.produto;
+output.status = input.status;
+output.telefone = input.telefone;
+]]></attr>
+</Node>
+<Node charset="UTF-8" enabled="enabled" fileURL="dict:inputPayload" guiName="XML READER" guiX="20" guiY="20" id="XML_READER0" type="XML_READER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context namespacePaths="ns0=&quot;http://service/&quot;" outPort="0" sequenceField="__id" xpath="/ns0:getEntregasNaoConcluidasResponse">
+  <Context generatedKey="__parent_id" outPort="1" parentKey="__id" sequenceField="__id" xpath="return">
+    <Mapping cloverField="cpf" trim="true" xpath="cpf"/>
+    <Mapping cloverField="dataCadastro" trim="true" xpath="dataCadastro"/>
+    <Mapping cloverField="dataEntrega" trim="true" xpath="dataEntrega"/>
+    <Mapping cloverField="endereco" trim="true" xpath="endereco"/>
+    <Mapping cloverField="entregador" trim="true" xpath="entregador"/>
+    <Mapping cloverField="idEntrega" trim="true" xpath="idEntrega"/>
+    <Mapping cloverField="idVenda" trim="true" xpath="idVenda"/>
+    <Mapping cloverField="melhorHorario" trim="true" xpath="melhorHorario"/>
+    <Mapping cloverField="nomeCliente" trim="true" xpath="nomeCliente"/>
+    <Mapping cloverField="observacao" trim="true" xpath="observacao"/>
+    <Mapping cloverField="ordemEntrega" trim="true" xpath="ordemEntrega"/>
+    <Mapping cloverField="produto" trim="true" xpath="produto"/>
+    <Mapping cloverField="status" trim="true" xpath="status"/>
+    <Mapping cloverField="telefone" trim="true" xpath="telefone"/>
+  </Context>
+</Context>
+]]></attr>
+<attr name="_data_format"><![CDATA[XML]]></attr>
+<attr name="__metadata"><![CDATA[true]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="FOREACH_NS0_GET_ENTREGAS_NAO_CONCLUIDAS_RESPONSE_LIST:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="fcd0351e-7d9d-4898-917a-43e9516313fb" outPort="Port 0 (out)" toNode="BEAN_WRITER0:0"/>
+<Edge debugMode="true" fromNode="FOREACH_RETURN_LIST:0" guiBendpoints="" id="Edge3" inPort="Port 1 (in)" metadata="fcd0351e-7d9d-4898-917a-43e9516313fb" outPort="Port 0 (out)" toNode="BEAN_WRITER0:1"/>
+<Edge debugMode="true" fromNode="XML_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="0e12822a-76d6-4b7a-986f-2f53a3109f24" outPort="Port 0 (out)" toNode="FOREACH_NS0_GET_ENTREGAS_NAO_CONCLUIDAS_RESPONSE_LIST:0"/>
+<Edge debugMode="true" fromNode="XML_READER0:1" guiBendpoints="" id="Edge2" inPort="Port 0 (in)" metadata="0108721c-b6f5-4bdf-8763-e83d3d3b32c3" outPort="Port 1 (out)" toNode="FOREACH_RETURN_LIST:0"/>
+</Phase>
+</Graph>

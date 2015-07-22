@@ -1,0 +1,17 @@
+<object>
+    <idVenda>2</idVenda>
+    <cpf>22222222222</cpf>
+    <melhorHorario>Noite</melhorHorario>
+    <endereco>Rua Paulo</endereco>
+    <entregador>Zé</entregador>
+</object>
+<vendaServiceResponse>
+    <return>
+        <CPFCliente>22222222222</CPFCliente>
+        <CPFVendedor>11111111111</CPFVendedor>
+        <id>2</id>
+        <nome>Anderson</nome>
+        <produto>Celular</produto>
+        <valor>40</valor>
+    </return>
+</vendaServiceResponse>x

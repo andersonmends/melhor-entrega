@@ -1,0 +1,5 @@
+Eu tive que entendar a lógica que vc fez. No caso, vc me retorna um Objeto. Você tem mapear
+Como eu fiz. Acontece, que eu não entendo a lógica do seu sistema. Mas olhe como eu fiz pra criar o JSON
+Precisaria saber qual tipo de objeto vc me retornar. Tá vindo NULL, vc precisa ver esses Pojos aí..
+
+Vou indo aqui. Flww.

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><Graph __version="3.5.0" author="Anderson Mendes" created="Tue Jul 21 00:11:30 GMT-03:00 2015" description="Xml&lt;listarEntregadoresResponse&gt; To Pojo" guiVersion="3.4.4.P" id="1437508842378" licenseCode="Unlicensed" licenseType="Unknown" modified="Tue Jul 21 00:11:30 GMT-03:00 2015" modifiedBy="Anderson Mendes" name="Xml_listarEntregadoresResponse__To_Pojo" revision="1.0" showComponentDetails="false">
+<Global>
+<Metadata __index="0" __referenceCounter="2" __sourcePath="{}/list" _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _id="__id" _type="Output" id="2ff023ff-78a4-4fb2-9969-aae005f644d8">
+<Record fieldDelimiter="," name="list" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="0" __sourcePath="{}/list/cargo" containerType="SINGLE" label="cargo" name="cargo" type="string"/>
+<Field __index="1" __sourcePath="{}/list/cpf" containerType="SINGLE" label="cpf" name="cpf" type="string"/>
+<Field __index="2" __sourcePath="{}/list/endereco" containerType="SINGLE" label="endereco" name="endereco" type="string"/>
+<Field __index="3" __sourcePath="{}/list/nome" containerType="SINGLE" label="nome" name="nome" type="string"/>
+<Field __index="4" __sourcePath="{}/list/senha" containerType="SINGLE" label="senha" name="senha" type="string"/>
+<Field __index="5" __sourcePath="{}/list/telefone" containerType="SINGLE" label="telefone" name="telefone" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:listarEntregadoresResponse" _dataStructure="OBJECT" _id="__id" _type="Input" id="549b71fb-0ed5-4190-b5cf-0e9e042169ab">
+<Record fieldDelimiter="," name="listarEntregadoresResponse" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:listarEntregadoresResponse/return" _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _id="__id" _metadataParentId="549b71fb-0ed5-4190-b5cf-0e9e042169ab" _parent_id="__parent_id" _type="Input" id="5e985e06-5e48-4f60-9db4-499f78598b66">
+<Record fieldDelimiter="," name="return" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_parent_id" __systemManaged="true" name="__parent_id" type="string"/>
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __implementationClass="java.lang.String" __index="0" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:listarEntregadoresResponse/return/cargo" containerType="SINGLE" label="cargo" name="cargo" type="string"/>
+<Field __implementationClass="java.lang.String" __index="1" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:listarEntregadoresResponse/return/cpf" containerType="SINGLE" label="cpf" name="cpf" type="string"/>
+<Field __implementationClass="java.lang.String" __index="2" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:listarEntregadoresResponse/return/endereco" containerType="SINGLE" label="endereco" name="endereco" type="string"/>
+<Field __implementationClass="java.lang.String" __index="3" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:listarEntregadoresResponse/return/nome" containerType="SINGLE" label="nome" name="nome" type="string"/>
+<Field __implementationClass="java.lang.String" __index="4" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:listarEntregadoresResponse/return/senha" containerType="SINGLE" label="senha" name="senha" type="string"/>
+<Field __implementationClass="java.lang.String" __index="5" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:listarEntregadoresResponse/return/telefone" containerType="SINGLE" label="telefone" name="telefone" type="string"/>
+</Record>
+</Metadata>
+<Dictionary>
+<Entry id="DictionaryEntry0" input="true" name="inputPayload" output="false" type="object"/>
+<Entry id="DictionaryEntry1" input="false" name="outputPayload" output="true" type="object"/>
+</Dictionary>
+</Global>
+<Phase number="0">
+<Node cacheInMemory="true" enabled="enabled" fileURL="dict:outputPayload" guiName="Pojo WRITER" guiX="900" guiY="20" id="BEAN_WRITER0" type="BEAN_WRITER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<clover:collection clover:name="list" xmlns:clover="http://www.cloveretl.com/ns/xmlmapping">
+  <item clover:inPort="0">
+    <cargo>$0.cargo</cargo>
+    <cpf>$0.cpf</cpf>
+    <endereco>$0.endereco</endereco>
+    <nome>$0.nome</nome>
+    <senha>$0.senha</senha>
+    <telefone>$0.telefone</telefone>
+  </item>
+  <item clover:inPort="1">
+    <cargo>$1.cargo</cargo>
+    <cpf>$1.cpf</cpf>
+    <endereco>$1.endereco</endereco>
+    <nome>$1.nome</nome>
+    <senha>$1.senha</senha>
+    <telefone>$1.telefone</telefone>
+  </item>
+</clover:collection>]]></attr>
+<attr name="_data_format"><![CDATA[JAVA]]></attr>
+<attr name="schema"><![CDATA[<?xml version="1.0" encoding="UTF-8"?><schema-object>
+  <schema-collection>
+    <typed-object-ref type-ref="br.com.sistemalegado.model.Funcionario"/>
+  </schema-collection>
+  <typed-object type="br.com.sistemalegado.model.Funcionario">
+    <typed-object-ref name="cargo" type-ref="java.lang.String"/>
+    <typed-object-ref name="cpf" type-ref="java.lang.String"/>
+    <typed-object-ref name="endereco" type-ref="java.lang.String"/>
+    <typed-object-ref name="nome" type-ref="java.lang.String"/>
+    <typed-object-ref name="senha" type-ref="java.lang.String"/>
+    <typed-object-ref name="telefone" type-ref="java.lang.String"/>
+  </typed-object>
+  <typed-object type="java.lang.String"/>
+</schema-object>
+]]></attr>
+</Node>
+<Node enabled="enabled" guiName="Foreach 'ns0:listarEntregadoresResponse' -&gt; 'list'" guiX="460" guiY="20" id="FOREACH_NS0_LISTAR_ENTREGADORES_RESPONSE_LIST" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+//END -> DO NOT REMOVE
+]]></attr>
+</Node>
+<Node enabled="enabled" guiName="Foreach 'return' -&gt; 'list'" guiX="460" guiY="120" id="FOREACH_RETURN_LIST" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+//END -> DO NOT REMOVE
+output.cargo = input.cargo + input.cargo;
+output.cpf = input.cpf;
+output.endereco = input.endereco;
+output.nome = input.nome;
+output.senha = input.senha;
+output.telefone = input.telefone;
+]]></attr>
+</Node>
+<Node charset="UTF-8" enabled="enabled" fileURL="dict:inputPayload" guiName="XML READER" guiX="20" guiY="20" id="XML_READER0" type="XML_READER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context namespacePaths="ns0=&quot;http://service.sistemalegado.com.br/&quot;" outPort="0" sequenceField="__id" xpath="/ns0:listarEntregadoresResponse">
+  <Context generatedKey="__parent_id" outPort="1" parentKey="__id" sequenceField="__id" xpath="return">
+    <Mapping cloverField="cargo" trim="true" xpath="cargo"/>
+    <Mapping cloverField="cpf" trim="true" xpath="cpf"/>
+    <Mapping cloverField="endereco" trim="true" xpath="endereco"/>
+    <Mapping cloverField="nome" trim="true" xpath="nome"/>
+    <Mapping cloverField="senha" trim="true" xpath="senha"/>
+    <Mapping cloverField="telefone" trim="true" xpath="telefone"/>
+  </Context>
+</Context>
+]]></attr>
+<attr name="_data_format"><![CDATA[XML]]></attr>
+<attr name="__metadata"><![CDATA[true]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="FOREACH_NS0_LISTAR_ENTREGADORES_RESPONSE_LIST:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="2ff023ff-78a4-4fb2-9969-aae005f644d8" outPort="Port 0 (out)" toNode="BEAN_WRITER0:0"/>
+<Edge debugMode="true" fromNode="FOREACH_RETURN_LIST:0" guiBendpoints="" id="Edge3" inPort="Port 1 (in)" metadata="2ff023ff-78a4-4fb2-9969-aae005f644d8" outPort="Port 0 (out)" toNode="BEAN_WRITER0:1"/>
+<Edge debugMode="true" fromNode="XML_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="549b71fb-0ed5-4190-b5cf-0e9e042169ab" outPort="Port 0 (out)" toNode="FOREACH_NS0_LISTAR_ENTREGADORES_RESPONSE_LIST:0"/>
+<Edge debugMode="true" fromNode="XML_READER0:1" guiBendpoints="" id="Edge2" inPort="Port 0 (in)" metadata="5e985e06-5e48-4f60-9db4-499f78598b66" outPort="Port 1 (out)" toNode="FOREACH_RETURN_LIST:0"/>
+</Phase>
+</Graph>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><Graph __version="3.5.0" author="Anderson Mendes" created="Tue Jul 21 00:11:30 GMT-03:00 2015" description="Xml&lt;remarcarEntregaResponse&gt; To Pojo" guiVersion="3.4.4.P" id="1437517518968" licenseCode="Unlicensed" licenseType="Unknown" modified="Tue Jul 21 00:11:30 GMT-03:00 2015" modifiedBy="Anderson Mendes" name="Xml_remarcarEntregaResponse__To_Pojo" revision="1.0" showComponentDetails="false">
+<Global>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{http://service/=ns0}/ns0:remarcarEntregaResponse" _dataStructure="OBJECT" _id="__id" _type="Input" id="a8f5d4bf-56e6-4d36-95dc-4fae497c2ccc">
+<Record fieldDelimiter="," name="remarcarEntregaResponse" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __implementationClass="java.lang.String" __index="0" __sourcePath="{http://service/=ns0}/ns0:remarcarEntregaResponse/return" containerType="SINGLE" label="return" name="return" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/object" _dataStructure="OBJECT" _id="__id" _type="Output" id="b72369d2-d46e-4dec-9bc1-f680fcbaa903">
+<Record fieldDelimiter="," name="String" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="0" __sourcePath="{}/object/text()" containerType="SINGLE" label="text()" name="text" type="string"/>
+</Record>
+</Metadata>
+<Dictionary>
+<Entry id="DictionaryEntry0" input="true" name="inputPayload" output="false" type="object"/>
+<Entry id="DictionaryEntry1" input="false" name="outputPayload" output="true" type="object"/>
+</Dictionary>
+</Global>
+<Phase number="0">
+<Node cacheInMemory="true" enabled="enabled" fileURL="dict:outputPayload" guiName="Pojo WRITER" guiX="900" guiY="20" id="BEAN_WRITER0" type="BEAN_WRITER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<object xmlns:clover="http://www.cloveretl.com/ns/xmlmapping" clover:inPort="0">$0.text</object>]]></attr>
+<attr name="_data_format"><![CDATA[JAVA]]></attr>
+<attr name="schema"><![CDATA[<?xml version="1.0" encoding="UTF-8"?><schema-object>
+  <typed-object-ref type-ref="java.lang.String"/>
+  <typed-object type="java.lang.String"/>
+</schema-object>
+]]></attr>
+</Node>
+<Node enabled="enabled" guiName="Foreach 'ns0:remarcarEntregaResponse' -&gt; 'object'" guiX="460" guiY="20" id="FOREACH_NS0_REMARCAR_ENTREGA_RESPONSE_OBJECT" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+//END -> DO NOT REMOVE
+output.text = input.return;]]></attr>
+</Node>
+<Node charset="UTF-8" enabled="enabled" fileURL="dict:inputPayload" guiName="XML READER" guiX="20" guiY="20" id="XML_READER0" type="XML_READER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context namespacePaths="ns0=&quot;http://service/&quot;" outPort="0" sequenceField="__id" xpath="/ns0:remarcarEntregaResponse">
+  <Mapping cloverField="return" trim="true" xpath="return"/>
+</Context>
+]]></attr>
+<attr name="_data_format"><![CDATA[XML]]></attr>
+<attr name="__metadata"><![CDATA[true]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="FOREACH_NS0_REMARCAR_ENTREGA_RESPONSE_OBJECT:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="b72369d2-d46e-4dec-9bc1-f680fcbaa903" outPort="Port 0 (out)" toNode="BEAN_WRITER0:0"/>
+<Edge debugMode="true" fromNode="XML_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="a8f5d4bf-56e6-4d36-95dc-4fae497c2ccc" outPort="Port 0 (out)" toNode="FOREACH_NS0_REMARCAR_ENTREGA_RESPONSE_OBJECT:0"/>
+</Phase>
+</Graph>

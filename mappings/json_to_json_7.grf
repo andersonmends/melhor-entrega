@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><Graph __version="3.5.0" author="Anderson Mendes" created="Tue Jul 21 00:11:30 GMT-03:00 2015" description="JSON To JSON" guiVersion="3.4.4.P" id="1437506789026" licenseCode="Unlicensed" licenseType="Unknown" modified="Tue Jul 21 00:11:30 GMT-03:00 2015" modifiedBy="Anderson Mendes" name="JSON_To_JSON_1JSON_To_JSON_2JSON_To_JSON_3JSON_To_JSON_4JSON_To_JSON_5" preview-file="${Project_Home}/mappings/vendacompleta.json" revision="1.0" showComponentDetails="false">
+<Global>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/object" _dataStructure="OBJECT" _id="__id" _type="Input" id="4d13558c-28cb-4891-b49d-525584a4a563">
+<Record fieldDelimiter="," name="object" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="0" __sourcePath="{}/object/id" containerType="SINGLE" label="id" name="id" type="integer"/>
+<Field __index="1" __sourcePath="{}/object/nome" containerType="SINGLE" label="nome" name="nome" type="string"/>
+<Field __index="2" __sourcePath="{}/object/produto" containerType="SINGLE" label="produto" name="produto" type="string"/>
+<Field __index="3" __sourcePath="{}/object/valor" containerType="SINGLE" label="valor" name="valor" type="integer"/>
+<Field __index="4" __sourcePath="{}/object/Status" containerType="SINGLE" label="Status" name="Status" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/object" _dataStructure="OBJECT" _id="__id" _type="Output" id="7d35bc54-ac11-4b43-8f23-97f728f3ea74">
+<Record fieldDelimiter="," name="object" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="4" __sourcePath="{}/object/Status" containerType="SINGLE" label="Status" name="Status" type="string"/>
+<Field __index="0" __sourcePath="{}/object/id" containerType="SINGLE" label="id" name="id" type="integer"/>
+<Field __index="1" __sourcePath="{}/object/nome" containerType="SINGLE" label="nome" name="nome" type="string"/>
+<Field __index="2" __sourcePath="{}/object/produto" containerType="SINGLE" label="produto" name="produto" type="string"/>
+<Field __index="3" __sourcePath="{}/object/valor" containerType="SINGLE" label="valor" name="valor" type="integer"/>
+</Record>
+</Metadata>
+<Dictionary>
+<Entry id="DictionaryEntry0" input="true" name="inputPayload" output="false" type="object"/>
+<Entry id="DictionaryEntry1" input="false" name="outputPayload" output="true" type="object"/>
+</Dictionary>
+</Global>
+<Phase number="0">
+<Node enabled="enabled" guiName="Foreach 'object' -&gt; 'object'" guiX="460" guiY="20" id="FOREACH_OBJECT_OBJECT" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+//END -> DO NOT REMOVE
+output.id = input.id;
+output.nome = input.nome;
+output.produto = input.produto;
+output.valor = input.valor;
+output.Status = input.Status;
+]]></attr>
+</Node>
+<Node charset="UTF-8" enabled="enabled" fileURL="dict:inputPayload" guiName="JSON READER" guiX="20" guiY="20" id="JSON_READER0" type="JSON_READER">
+<attr name="__isJsonSchema"><![CDATA[false]]></attr>
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context xpath="/root">
+  <Context outPort="0" sequenceField="__id" xpath="object">
+    <Mapping cloverField="id" trim="true" xpath="id"/>
+    <Mapping cloverField="nome" trim="true" xpath="nome"/>
+    <Mapping cloverField="produto" trim="true" xpath="produto"/>
+    <Mapping cloverField="valor" trim="true" xpath="valor"/>
+    <Mapping cloverField="Status" trim="true" xpath="Status"/>
+  </Context>
+</Context>
+]]></attr>
+<attr name="_data_format"><![CDATA[JSON]]></attr>
+<attr name="jsonSchemaURL"><![CDATA[./mappings/vendacompleta.json]]></attr>
+</Node>
+<Node cacheInMemory="true" charset="UTF-8" enabled="enabled" fileURL="dict:outputPayload" guiName="JSON WRITER" guiX="900" guiY="20" id="JSON_WRITER0" type="JSON_WRITER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<object xmlns:clover="http://www.cloveretl.com/ns/xmlmapping" clover:inPort="0">
+  <id>$0.id</id>
+  <nome>$0.nome</nome>
+  <produto>$0.produto</produto>
+  <valor>$0.valor</valor>
+  <Status>$0.Status</Status>
+</object>]]></attr>
+<attr name="_data_format"><![CDATA[JSON]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="FOREACH_OBJECT_OBJECT:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="7d35bc54-ac11-4b43-8f23-97f728f3ea74" outPort="Port 0 (out)" toNode="JSON_WRITER0:0"/>
+<Edge debugMode="true" fromNode="JSON_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="4d13558c-28cb-4891-b49d-525584a4a563" outPort="Port 0 (out)" toNode="FOREACH_OBJECT_OBJECT:0"/>
+</Phase>
+</Graph>

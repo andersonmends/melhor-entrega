@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><Graph __version="3.5.0" author="Anderson Mendes" created="Tue Jul 21 00:11:30 GMT-03:00 2015" description="Xml&lt;vendaServiceResponse&gt; To JSON" guiVersion="3.4.4.P" id="1437451181352" licenseCode="Unlicensed" licenseType="Unknown" modified="Tue Jul 21 00:11:30 GMT-03:00 2015" modifiedBy="Anderson Mendes" name="Xml_vendaServiceResponse__To_JSON" revision="1.0" showComponentDetails="false">
+<Global>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:vendaServiceResponse" _dataStructure="OBJECT" _id="__id" _type="Input" id="2599f2c3-1989-4e47-adfc-2ac497535e07">
+<Record fieldDelimiter="," name="vendaServiceResponse" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __implementationClass="java.lang.String" __index="0" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:vendaServiceResponse/return/CPFCliente" containerType="SINGLE" label="CPFCliente" name="CPFCliente" type="string"/>
+<Field __implementationClass="java.lang.String" __index="1" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:vendaServiceResponse/return/CPFVendedor" containerType="SINGLE" label="CPFVendedor" name="CPFVendedor" type="string"/>
+<Field __implementationClass="java.lang.Long" __index="2" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:vendaServiceResponse/return/id" containerType="SINGLE" label="id" name="id" type="long"/>
+<Field __implementationClass="java.lang.String" __index="3" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:vendaServiceResponse/return/nome" containerType="SINGLE" label="nome" name="nome" type="string"/>
+<Field __implementationClass="java.lang.String" __index="4" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:vendaServiceResponse/return/produto" containerType="SINGLE" label="produto" name="produto" type="string"/>
+<Field __implementationClass="java.lang.Integer" __index="5" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:vendaServiceResponse/return/valor" containerType="SINGLE" label="valor" name="valor" type="integer"/>
+</Record>
+</Metadata>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/vendaServiceResponse" _dataStructure="OBJECT" _id="__id" _type="Output" id="8c319282-dd42-4515-ad70-d1cbbecb785e">
+<Record fieldDelimiter="," name="vendaServiceResponse" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="0" __sourcePath="{}/vendaServiceResponse/return/CPFCliente" containerType="SINGLE" label="CPFCliente" name="CPFCliente" type="string"/>
+<Field __index="1" __sourcePath="{}/vendaServiceResponse/return/CPFVendedor" containerType="SINGLE" label="CPFVendedor" name="CPFVendedor" type="string"/>
+<Field __index="2" __sourcePath="{}/vendaServiceResponse/return/id" containerType="SINGLE" label="id" name="id" type="long"/>
+<Field __index="3" __sourcePath="{}/vendaServiceResponse/return/nome" containerType="SINGLE" label="nome" name="nome" type="string"/>
+<Field __index="4" __sourcePath="{}/vendaServiceResponse/return/produto" containerType="SINGLE" label="produto" name="produto" type="string"/>
+<Field __index="5" __sourcePath="{}/vendaServiceResponse/return/valor" containerType="SINGLE" label="valor" name="valor" type="integer"/>
+</Record>
+</Metadata>
+<Dictionary>
+<Entry id="DictionaryEntry0" input="true" name="inputPayload" output="false" type="object"/>
+<Entry id="DictionaryEntry1" input="false" name="outputPayload" output="true" type="object"/>
+</Dictionary>
+</Global>
+<Phase number="0">
+<Node enabled="enabled" guiName="Foreach 'ns0:vendaServiceResponse' -&gt; 'vendaServiceResponse'" guiX="460" guiY="20" id="FOREACH_NS0_VENDA_SERVICE_RESPONSE_VENDA_SERVICE_RESPONSE" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+//END -> DO NOT REMOVE
+output.CPFCliente = input.CPFCliente;
+output.CPFVendedor = input.CPFVendedor;
+output.id = input.id;
+output.nome = input.nome;
+output.produto = input.produto;
+output.valor = input.valor;
+]]></attr>
+</Node>
+<Node cacheInMemory="true" charset="UTF-8" enabled="enabled" fileURL="dict:outputPayload" guiName="JSON WRITER" guiX="900" guiY="20" id="JSON_WRITER0" type="JSON_WRITER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<vendaServiceResponse xmlns:clover="http://www.cloveretl.com/ns/xmlmapping" clover:inPort="0">
+  <return>
+    <CPFCliente>$0.CPFCliente</CPFCliente>
+    <CPFVendedor>$0.CPFVendedor</CPFVendedor>
+    <id>$0.id</id>
+    <nome>$0.nome</nome>
+    <produto>$0.produto</produto>
+    <valor>$0.valor</valor>
+  </return>
+</vendaServiceResponse>]]></attr>
+<attr name="_data_format"><![CDATA[JSON]]></attr>
+</Node>
+<Node charset="UTF-8" enabled="enabled" fileURL="dict:inputPayload" guiName="XML READER" guiX="20" guiY="20" id="XML_READER0" type="XML_READER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context namespacePaths="ns0=&quot;http://service.sistemalegado.com.br/&quot;" outPort="0" sequenceField="__id" xpath="/ns0:vendaServiceResponse">
+  <Mapping cloverField="CPFCliente" trim="true" xpath="return/CPFCliente"/>
+  <Mapping cloverField="CPFVendedor" trim="true" xpath="return/CPFVendedor"/>
+  <Mapping cloverField="id" trim="true" xpath="return/id"/>
+  <Mapping cloverField="nome" trim="true" xpath="return/nome"/>
+  <Mapping cloverField="produto" trim="true" xpath="return/produto"/>
+  <Mapping cloverField="valor" trim="true" xpath="return/valor"/>
+</Context>
+]]></attr>
+<attr name="_data_format"><![CDATA[XML]]></attr>
+<attr name="__metadata"><![CDATA[true]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="FOREACH_NS0_VENDA_SERVICE_RESPONSE_VENDA_SERVICE_RESPONSE:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="8c319282-dd42-4515-ad70-d1cbbecb785e" outPort="Port 0 (out)" toNode="JSON_WRITER0:0"/>
+<Edge debugMode="true" fromNode="XML_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="2599f2c3-1989-4e47-adfc-2ac497535e07" outPort="Port 0 (out)" toNode="FOREACH_NS0_VENDA_SERVICE_RESPONSE_VENDA_SERVICE_RESPONSE:0"/>
+</Phase>
+</Graph>

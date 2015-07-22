@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><Graph __version="3.5.0" author="Anderson Mendes" created="Sun Jul 19 14:45:40 GMT-03:00 2015" description="JSON To JSON" guiVersion="3.4.4.P" id="1437337955149" licenseCode="Unlicensed" licenseType="Unknown" modified="Sun Jul 19 14:45:40 GMT-03:00 2015" modifiedBy="Anderson Mendes" name="JSON_To_JSON_1JSON_To_JSON_2" preview-file="${Project_Home}/mappings/entrega.json" revision="1.0" showComponentDetails="false">
+<Global>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/object" _dataStructure="OBJECT" _id="__id" _type="Input" id="9edca88b-9032-4a9a-af76-34393a19850e">
+<Record fieldDelimiter="," name="object" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="0" __sourcePath="{}/object/idVenda" containerType="SINGLE" label="idVenda" name="idVenda" type="string"/>
+<Field __index="1" __sourcePath="{}/object/telefone_x0020" containerType="SINGLE" label="telefone " name="telefone" type="string"/>
+<Field __index="2" __sourcePath="{}/object/cpf_x0020" containerType="SINGLE" label="cpf " name="cpf" type="string"/>
+<Field __index="3" __sourcePath="{}/object/melhorHorario" containerType="SINGLE" label="melhorHorario" name="melhorHorario" type="string"/>
+<Field __index="4" __sourcePath="{}/object/endereco_x0020" containerType="SINGLE" label="endereco " name="endereco" type="string"/>
+<Field __index="5" __sourcePath="{}/object/entregador" containerType="SINGLE" label="entregador" name="entregador" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/object" _dataStructure="OBJECT" _id="__id" _type="Output" id="b2ced275-02f2-44f7-8ee4-14ae7f51d37d">
+<Record fieldDelimiter="," name="object" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="2" __sourcePath="{}/object/cpf_x0020" containerType="SINGLE" label="cpf " name="cpf" type="string"/>
+<Field __index="4" __sourcePath="{}/object/endereco_x0020" containerType="SINGLE" label="endereco " name="endereco" type="string"/>
+<Field __index="5" __sourcePath="{}/object/entregador" containerType="SINGLE" label="entregador" name="entregador" type="string"/>
+<Field __index="0" __sourcePath="{}/object/idVenda" containerType="SINGLE" label="idVenda" name="idVenda" type="string"/>
+<Field __index="3" __sourcePath="{}/object/melhorHorario" containerType="SINGLE" label="melhorHorario" name="melhorHorario" type="string"/>
+<Field __index="1" __sourcePath="{}/object/telefone_x0020" containerType="SINGLE" label="telefone " name="telefone" type="string"/>
+</Record>
+</Metadata>
+<Dictionary>
+<Entry id="DictionaryEntry0" input="true" name="inputPayload" output="false" type="object"/>
+<Entry id="DictionaryEntry1" input="false" name="outputPayload" output="true" type="object"/>
+</Dictionary>
+</Global>
+<Phase number="0">
+<Node enabled="enabled" guiName="Foreach 'object' -&gt; 'object'" guiX="460" guiY="20" id="FOREACH_OBJECT_OBJECT" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+//END -> DO NOT REMOVE
+output.idVenda = input.idVenda;
+output.telefone = input.telefone;
+output.cpf = input.cpf;
+output.melhorHorario = input.melhorHorario;
+output.endereco = input.endereco;
+output.entregador = input.entregador;
+]]></attr>
+</Node>
+<Node charset="UTF-8" enabled="enabled" fileURL="dict:inputPayload" guiName="JSON READER" guiX="20" guiY="20" id="JSON_READER0" type="JSON_READER">
+<attr name="__isJsonSchema"><![CDATA[false]]></attr>
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context xpath="/root">
+  <Context outPort="0" sequenceField="__id" xpath="object">
+    <Mapping cloverField="idVenda" trim="true" xpath="idVenda"/>
+    <Mapping cloverField="telefone" trim="true" xpath="telefone_x0020"/>
+    <Mapping cloverField="cpf" trim="true" xpath="cpf_x0020"/>
+    <Mapping cloverField="melhorHorario" trim="true" xpath="melhorHorario"/>
+    <Mapping cloverField="endereco" trim="true" xpath="endereco_x0020"/>
+    <Mapping cloverField="entregador" trim="true" xpath="entregador"/>
+  </Context>
+</Context>
+]]></attr>
+<attr name="_data_format"><![CDATA[JSON]]></attr>
+<attr name="jsonSchemaURL"><![CDATA[./mappings/entrega.json]]></attr>
+</Node>
+<Node cacheInMemory="true" charset="UTF-8" enabled="enabled" fileURL="dict:outputPayload" guiName="JSON WRITER" guiX="900" guiY="20" id="JSON_WRITER0" type="JSON_WRITER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<object xmlns:clover="http://www.cloveretl.com/ns/xmlmapping" clover:inPort="0">
+  <idVenda>$0.idVenda</idVenda>
+  <clover:element clover:name="telefone ">$0.telefone</clover:element>
+  <clover:element clover:name="cpf ">$0.cpf</clover:element>
+  <melhorHorario>$0.melhorHorario</melhorHorario>
+  <clover:element clover:name="endereco ">$0.endereco</clover:element>
+  <entregador>$0.entregador</entregador>
+</object>]]></attr>
+<attr name="_data_format"><![CDATA[JSON]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="FOREACH_OBJECT_OBJECT:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="b2ced275-02f2-44f7-8ee4-14ae7f51d37d" outPort="Port 0 (out)" toNode="JSON_WRITER0:0"/>
+<Edge debugMode="true" fromNode="JSON_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="9edca88b-9032-4a9a-af76-34393a19850e" outPort="Port 0 (out)" toNode="FOREACH_OBJECT_OBJECT:0"/>
+</Phase>
+</Graph>

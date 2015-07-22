@@ -1,0 +1,9 @@
+{"idVenda":"",   
+"telefone ":"",
+"cpf ":"",
+"melhorHorario":"", 
+"endereco ":"",
+"entregador":""
+"nome":"",
+"produto":""
+}

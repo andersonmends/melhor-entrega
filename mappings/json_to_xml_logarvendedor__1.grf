@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><Graph __version="3.5.0" author="Anderson Mendes" created="Thu Jul 16 20:08:34 GMT-03:00 2015" description="JSON To Xml&lt;logarVendedor&gt;" guiVersion="3.4.4.P" id="1437088887274" licenseCode="Unlicensed" licenseType="Unknown" modified="Thu Jul 16 20:08:34 GMT-03:00 2015" modifiedBy="Anderson Mendes" name="JSON_To_Xml_logarVendedor__1" preview-file="${Project_Home}/mappings/funcionario.json" revision="1.0" showComponentDetails="false">
+<Global>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:logarVendedor" _dataStructure="OBJECT" _id="__id" _type="Output" id="5b6f4d9a-dfca-4b80-8487-16907d4bbeb7">
+<Record fieldDelimiter="," name="logarVendedor" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __implementationClass="java.lang.String" __index="0" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:logarVendedor/arg0" containerType="SINGLE" label="arg0" name="arg0" type="string"/>
+<Field __implementationClass="java.lang.String" __index="1" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:logarVendedor/arg1" containerType="SINGLE" label="arg1" name="arg1" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/object" _dataStructure="OBJECT" _id="__id" _type="Input" id="3c7c7dcc-bb18-4503-af8d-8dcd07ff484f">
+<Record fieldDelimiter="," name="object" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="0" __sourcePath="{}/object/cpf" containerType="SINGLE" label="cpf" name="cpf" type="string"/>
+<Field __index="1" __sourcePath="{}/object/senha" containerType="SINGLE" label="senha" name="senha" type="string"/>
+</Record>
+</Metadata>
+<Dictionary>
+<Entry id="DictionaryEntry0" input="true" name="inputPayload" output="false" type="object"/>
+<Entry id="DictionaryEntry1" input="false" name="outputPayload" output="true" type="object"/>
+</Dictionary>
+</Global>
+<Phase number="0">
+<Node enabled="enabled" fileURL="dict:outputPayload" guiName="XML WRITER" guiX="900" guiY="20" id="EXT_XML_WRITER0" type="EXT_XML_WRITER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<clover:element clover:name="ns0:logarVendedor" xmlns:clover="http://www.cloveretl.com/ns/xmlmapping" xmlns:ns0="http://service.sistemalegado.com.br/" clover:inPort="0">
+  <arg0>$0.arg0</arg0>
+  <arg1>$0.arg1</arg1>
+</clover:element>]]></attr>
+<attr name="_data_format"><![CDATA[XML]]></attr>
+<attr name="__metadata"><![CDATA[true]]></attr>
+</Node>
+<Node enabled="enabled" guiName="Foreach 'object' -&gt; 'ns0:logarVendedor'" guiX="460" guiY="20" id="FOREACH_OBJECT_NS0_LOGAR_VENDEDOR" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+//END -> DO NOT REMOVE
+output.arg0 = input.cpf;
+output.arg1 = input.senha;]]></attr>
+</Node>
+<Node charset="UTF-8" enabled="enabled" fileURL="dict:inputPayload" guiName="JSON READER" guiX="20" guiY="20" id="JSON_READER0" type="JSON_READER">
+<attr name="__isJsonSchema"><![CDATA[false]]></attr>
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context xpath="/root">
+  <Context outPort="0" sequenceField="__id" xpath="object">
+    <Mapping cloverField="cpf" trim="true" xpath="cpf"/>
+    <Mapping cloverField="senha" trim="true" xpath="senha"/>
+  </Context>
+</Context>
+]]></attr>
+<attr name="_data_format"><![CDATA[JSON]]></attr>
+<attr name="jsonSchemaURL"><![CDATA[./mappings/funcionario.json]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="FOREACH_OBJECT_NS0_LOGAR_VENDEDOR:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="5b6f4d9a-dfca-4b80-8487-16907d4bbeb7" outPort="Port 0 (out)" toNode="EXT_XML_WRITER0:0"/>
+<Edge debugMode="true" fromNode="JSON_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="3c7c7dcc-bb18-4503-af8d-8dcd07ff484f" outPort="Port 0 (out)" toNode="FOREACH_OBJECT_NS0_LOGAR_VENDEDOR:0"/>
+</Phase>
+</Graph>

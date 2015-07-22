@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:smtp="http://www.mulesoft.org/schema/mule/smtp" xmlns:wmq="http://www.mulesoft.org/schema/mule/ee/wmq" xmlns:email="http://www.mulesoft.org/schema/mule/email" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:ws="http://www.mulesoft.org/schema/mule/ws" xmlns:data-mapper="http://www.mulesoft.org/schema/mule/ee/data-mapper" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.6.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.mulesoft.org/schema/mule/email http://www.mulesoft.org/schema/mule/email/current/mule-email.xsd
+http://www.mulesoft.org/schema/mule/ee/wmq http://www.mulesoft.org/schema/mule/ee/wmq/current/mule-wmq-ee.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/smtp http://www.mulesoft.org/schema/mule/smtp/current/mule-smtp.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
+    <ws:consumer-config name="Web_Service_Consumer" wsdlLocation="http://localhost:8080/WS/SistemaLegadoWS?wsdl" service="SistemaLegadoImpService" port="SistemaLegadoImpPort" serviceAddress="http://localhost:8080/WS/SistemaLegadoWS" doc:name="Web_Service_Consumer"/>
+    <data-mapper:config name="JSON_To_Xml_logarVendedor_" transformationGraphPath="json_to_xml_logarvendedor_.grf" doc:name="JSON_To_Xml_logarVendedor_"/>
+    <data-mapper:config name="JSON_To_Xml_logarVendedor__1" transformationGraphPath="json_to_xml_logarvendedor__1.grf" doc:name="JSON_To_Xml_logarVendedor__1"/>
+    <data-mapper:config name="JSON_To_Xml_vendaService_" transformationGraphPath="json_to_xml_vendaservice_.grf" doc:name="JSON_To_Xml_vendaService_"/>
+    <data-mapper:config name="Xml_logarVendedorResponse__To_Pojo" transformationGraphPath="xml_logarvendedorresponse__to_pojo.grf" doc:name="Xml_logarVendedorResponse__To_Pojo"/>
+    <data-mapper:config name="JSON_To_JSON_1" transformationGraphPath="json_to_json_1.grf" doc:name="JSON_To_JSON_1"/>
+    <data-mapper:config name="JSON_To_Xml_vendaService__1" transformationGraphPath="json_to_xml_vendaservice__2.grf" doc:name="JSON_To_Xml_vendaService__1"/>
+    <data-mapper:config name="JSON_To_JSON_1JSON_To_JSON_2" transformationGraphPath="json_to_json_2.grf" doc:name="JSON_To_JSON_1JSON_To_JSON_2"/>
+    <data-mapper:config name="JSON_To_JSON_1JSON_To_JSON_2JSON_To_JSON_3JSON_To_JSON_4JSON_To_JSON_5JSON_To_JSON_6JSON_To_JSON_7JSON_To_JSON_8" transformationGraphPath="json_to_json_10.grf" doc:name="JSON_To_JSON_1JSON_To_JSON_2JSON_To_JSON_3JSON_To_JSON_4JSON_To_JSON_5JSON_To_JSON_6JSON_To_JSON_7JSON_To_JSON_8"/>
+    <data-mapper:config name="Xml_vendaServiceResponse__To_Pojo_1" transformationGraphPath="xml_vendaserviceresponse__to_pojo_1.grf" doc:name="Xml_vendaServiceResponse__To_Pojo_1"/>
+    <data-mapper:config name="JSON_To_JSON_1JSON_To_JSON_2JSON_To_JSON_3JSON_To_JSON_4" transformationGraphPath="json_to_json_6.grf" doc:name="JSON_To_JSON_1JSON_To_JSON_2JSON_To_JSON_3JSON_To_JSON_4"/>
+    <data-mapper:config name="Xml_vendaServiceResponse__To_JSON" transformationGraphPath="xml_vendaserviceresponse__to_json_1.grf" doc:name="Xml_vendaServiceResponse__To_JSON"/>
+    <ws:consumer-config name="Web_Service_Consumer1" wsdlLocation="http://localhost:8888/WS/ServiceBase?wsdl" service="BaseServService" port="BaseServPort" serviceAddress="http://localhost:8888/WS/ServiceBase" doc:name="Web_Service_Consumer1"/>
+    <data-mapper:config name="JSON_To_Xml_cadastrarEntrega_" transformationGraphPath="json_to_xml_cadastrarentrega_.grf" doc:name="JSON_To_Xml_cadastrarEntrega_"/>
+    <data-mapper:config name="JSON_To_Xml_getStatusEntrega_" transformationGraphPath="json_to_xml_getstatusentrega_.grf" doc:name="JSON_To_Xml_getStatusEntrega_"/>
+    <data-mapper:config name="Xml_vendaServiceResponse__To_JSON_1" transformationGraphPath="xml_vendaserviceresponse__to_json_2.grf" doc:name="Xml_vendaServiceResponse__To_JSON_1"/>
+    <data-mapper:config name="Xml_getStatusEntregaResponse__To_JSON" transformationGraphPath="xml_getstatusentregaresponse__to_json.grf" doc:name="Xml_getStatusEntregaResponse__To_JSON"/>
+    <data-mapper:config name="JSON_To_JSON_1JSON_To_JSON_2JSON_To_JSON_3JSON_To_JSON_4JSON_To_JSON_5" transformationGraphPath="json_to_json_7.grf" doc:name="JSON_To_JSON_1JSON_To_JSON_2JSON_To_JSON_3JSON_To_JSON_4JSON_To_JSON_5"/>
+    <data-mapper:config name="Xml_listarEntregadoresResponse__To_Pojo" transformationGraphPath="xml_listarentregadoresresponse__to_pojo.grf" doc:name="Xml_listarEntregadoresResponse__To_Pojo"/>
+    <data-mapper:config name="JSON_To_Xml_agendarEntrega_" transformationGraphPath="json_to_xml_agendarentrega_.grf" doc:name="JSON_To_Xml_agendarEntrega_"/>
+    <smtp:gmail-connector name="Gmail" contentType="text/plain" validateConnections="true" doc:name="Gmail"/>
+    <data-mapper:config name="Xml_agendarEntregaResponse__To_Pojo" transformationGraphPath="xml_agendarentregaresponse__to_pojo.grf" doc:name="Xml_agendarEntregaResponse__To_Pojo"/>
+    <data-mapper:config name="Xml_getEntregasNaoAgendadasResponse__To_Pojo" transformationGraphPath="xml_getentregasnaoagendadasresponse__to_pojo.grf" doc:name="Xml_getEntregasNaoAgendadasResponse__To_Pojo"/>
+    <data-mapper:config name="Xml_getEntregasNaoConcluidasResponse__To_Pojo" transformationGraphPath="xml_getentregasnaoconcluidasresponse__to_pojo.grf" doc:name="Xml_getEntregasNaoConcluidasResponse__To_Pojo"/>
+    <data-mapper:config name="JSON_To_Xml_remarcarEntrega_" transformationGraphPath="json_to_xml_remarcarentrega_.grf" doc:name="JSON_To_Xml_remarcarEntrega_"/>
+    <data-mapper:config name="Xml_remarcarEntregaResponse__To_Pojo" transformationGraphPath="xml_remarcarentregaresponse__to_pojo.grf" doc:name="Xml_remarcarEntregaResponse__To_Pojo"/>
+    <data-mapper:config name="Xml_cancelarEntregaResponse__To_Pojo" transformationGraphPath="xml_cancelarentregaresponse__to_pojo.grf" doc:name="Xml_cancelarEntregaResponse__To_Pojo"/>
+    <data-mapper:config name="JSON_To_Xml_cancelarEntrega_" transformationGraphPath="json_to_xml_cancelarentrega_.grf" doc:name="JSON_To_Xml_cancelarEntrega_"/>
+    <http:request-config name="REST" host="http://api.postmon.com.br" port="80" doc:name="HTTP Request Configuration"/>
+    <ws:consumer-config name="WSCEP" wsdlLocation="https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl" service="AtendeClienteService" port="AtendeClientePort" serviceAddress="https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente" doc:name="Web Service Consumer"/>
+    <data-mapper:config name="JSON_To_Xml_consultaCEP_" transformationGraphPath="json_to_xml_consultacep_.grf" doc:name="JSON_To_Xml_consultaCEP_"/>
+    <data-mapper:config name="Xml_consultaCEPResponse__To_JSON" transformationGraphPath="xml_consultacepresponse__to_json.grf" doc:name="Xml_consultaCEPResponse__To_JSON"/>
+    <data-mapper:config name="Xml_setEntregaConcluidaResponse__To_Pojo" transformationGraphPath="xml_setentregaconcluidaresponse__to_pojo.grf" doc:name="Xml_setEntregaConcluidaResponse__To_Pojo"/>
+    <data-mapper:config name="JSON_To_Xml_setEntregaConcluida_" transformationGraphPath="json_to_xml_setentregaconcluida_.grf" doc:name="JSON_To_Xml_setEntregaConcluida_"/>
+    <data-mapper:config name="JSON_To_Xml_associarEntregaAoEntregador_" transformationGraphPath="json_to_xml_associarentregaaoentregador_.grf" doc:name="JSON_To_Xml_associarEntregaAoEntregador_"/>
+    <data-mapper:config name="JSON_To_Xml_vendaService__1JSON_To_Xml_vendaService__2" transformationGraphPath="json_to_xml_vendaservice__3.grf" doc:name="JSON_To_Xml_vendaService__1JSON_To_Xml_vendaService__2"/>
+    <data-mapper:config name="JSON_To_JSON_1JSON_To_JSON_2JSON_To_JSON_3" transformationGraphPath="json_to_json_3.grf" doc:name="JSON_To_JSON_1JSON_To_JSON_2JSON_To_JSON_3"/>
+    <data-mapper:config name="JSON_To_JSON" transformationGraphPath="json_to_json.grf" doc:name="JSON_To_JSON"/>
+    <flow name="listarEntregadores">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/listarEntregadores" doc:name="HTTP"/>
+        <ws:consumer config-ref="Web_Service_Consumer" operation="listarEntregadores" doc:name="Web Service Consumer"/>
+        <data-mapper:transform config-ref="Xml_listarEntregadoresResponse__To_Pojo" doc:name="Xml&lt;listarEntregadoresResponse&gt; To Pojo"/>
+        <component class="TratamentoListaFuncionarios" doc:name="Java"/>
+    </flow>
+    <flow name="logarFuncionario">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/logarFuncionario" doc:name="HTTP"/>
+        <data-mapper:transform config-ref="JSON_To_Xml_logarVendedor__1" doc:name="JSON To Xml&lt;logarVendedor&gt;"/>
+        <ws:consumer config-ref="Web_Service_Consumer" operation="logarVendedor" doc:name="Web Service Consumer"/>
+        <data-mapper:transform config-ref="Xml_logarVendedorResponse__To_Pojo" doc:name="Xml&lt;logarVendedorResponse&gt; To Pojo"/>
+        <component class="Operacao" doc:name="Java"/>
+        <echo-component doc:name="Echo"/>
+    </flow>
+    <flow name="ConsultarCompra">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/consultarCompra" doc:name="HTTP"/>
+        <object-to-string-transformer doc:name="Object to String"/>
+        <scatter-gather doc:name="Scatter-Gather">
+            <custom-aggregation-strategy class="ProcessCollectedAggregationStrategy"/>
+            <processor-chain>
+                <data-mapper:transform config-ref="JSON_To_Xml_vendaService_" doc:name="JSON To Xml&lt;vendaService&gt;"/>
+                <ws:consumer config-ref="Web_Service_Consumer" operation="vendaService" doc:name="Web Service Consumer"/>
+                <data-mapper:transform config-ref="Xml_vendaServiceResponse__To_JSON_1" doc:name="Xml&lt;vendaServiceResponse&gt; To JSON"/>
+                <json:json-to-object-transformer doc:name="JSON to Object"/>
+            </processor-chain>
+            <processor-chain>
+                <data-mapper:transform config-ref="JSON_To_Xml_getStatusEntrega_" doc:name="JSON To Xml&lt;getStatusEntrega&gt;"/>
+                <ws:consumer config-ref="Web_Service_Consumer1" operation="getStatusEntrega" doc:name="Web Service Consumer"/>
+                <data-mapper:transform config-ref="Xml_getStatusEntregaResponse__To_JSON" doc:name="Xml&lt;getStatusEntregaResponse&gt; To JSON"/>
+                <json:json-to-object-transformer doc:name="JSON to Object"/>
+            </processor-chain>
+        </scatter-gather>
+        <object-to-string-transformer doc:name="Object to String"/>
+        <component class="FormatStringToJSON" doc:name="Java"/>
+        <data-mapper:transform config-ref="JSON_To_JSON_1JSON_To_JSON_2JSON_To_JSON_3JSON_To_JSON_4JSON_To_JSON_5" doc:name="JSON To JSON"/>
+    </flow>
+    <flow name="cadastrarEntrega">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/cadastrarEntrega" doc:name="HTTP"/>
+        <object-to-string-transformer doc:name="Object to String"/>
+        <scatter-gather doc:name="Scatter-Gather">
+            <custom-aggregation-strategy class="ProcessCollectedAggregationStrategy"/>
+            <processor-chain>
+                <data-mapper:transform config-ref="JSON_To_Xml_vendaService__1JSON_To_Xml_vendaService__2" doc:name="JSON To Xml&lt;vendaService&gt;"/>
+                <ws:consumer config-ref="Web_Service_Consumer" operation="vendaService" doc:name="Web Service Consumer"/>
+                <data-mapper:transform config-ref="Xml_vendaServiceResponse__To_JSON" doc:name="Xml&lt;vendaServiceResponse&gt; To JSON"/>
+                <json:json-to-object-transformer doc:name="JSON to Object"/>
+            </processor-chain>
+            <processor-chain>
+                <data-mapper:transform config-ref="JSON_To_JSON_1JSON_To_JSON_2JSON_To_JSON_3JSON_To_JSON_4" doc:name="JSON To JSON"/>
+                <json:json-to-object-transformer doc:name="JSON to Object"/>
+            </processor-chain>
+        </scatter-gather>
+        <object-to-string-transformer doc:name="Object to String"/>
+        <component class="FormatStringToJSON" doc:name="Java"/>
+        <data-mapper:transform config-ref="JSON_To_Xml_cadastrarEntrega_" doc:name="JSON To Xml&lt;cadastrarEntrega&gt;"/>
+        <ws:consumer config-ref="Web_Service_Consumer1" operation="cadastrarEntrega" doc:name="Web Service Consumer"/>
+    </flow>
+    <flow name="agendarEntrega">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/agendarEntrega" doc:name="HTTP"/>
+        <data-mapper:transform config-ref="JSON_To_Xml_agendarEntrega_" doc:name="JSON To Xml&lt;agendarEntrega&gt;"/>
+        <ws:consumer config-ref="Web_Service_Consumer1" operation="agendarEntrega" doc:name="Web Service Consumer"/>
+        <data-mapper:transform config-ref="Xml_agendarEntregaResponse__To_Pojo" doc:name="Xml&lt;agendarEntregaResponse&gt; To Pojo"/>
+        <component class="TratamentoEmail" doc:name="Java"/>
+        <smtp:outbound-endpoint host="smtp.gmail.com" port="587" user="anderson.mends%40gmail.com" password="Sephir86!" connector-ref="Gmail" to="anderson.mends@gmail.com" from="Melhor Entrega" subject="Entrega Agendada" cc="marcosjfneto@gmail.com" responseTimeout="10000" doc:name="Entrega Notification"/>
+    </flow>
+    <flow name="entregaNaoAgendadas">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/entregaNaoAgendadas" doc:name="HTTP"/>
+        <ws:consumer config-ref="Web_Service_Consumer1" operation="getEntregasNaoAgendadas" doc:name="Web Service Consumer"/>
+        <data-mapper:transform config-ref="Xml_getEntregasNaoAgendadasResponse__To_Pojo" doc:name="Xml&lt;getEntregasNaoAgendadasResponse&gt; To Pojo"/>
+        <component class="TratamentoListaEntregaNaoConcluidas" doc:name="Java"/>
+    </flow>
+    <flow name="entregaNaoConcluidas">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/entregaNaoConcluidas" doc:name="HTTP"/>
+        <ws:consumer config-ref="Web_Service_Consumer1" operation="getEntregasNaoConcluidas" doc:name="Web Service Consumer"/>
+        <data-mapper:transform config-ref="Xml_getEntregasNaoConcluidasResponse__To_Pojo" doc:name="Xml&lt;getEntregasNaoConcluidasResponse&gt; To Pojo"/>
+        <component class="TratamentoListaEntregaNaoConcluidas" doc:name="Java"/>
+    </flow>
+    <flow name="remarcarEntrega">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/remarcarEntrega" doc:name="HTTP"/>
+        <data-mapper:transform config-ref="JSON_To_Xml_remarcarEntrega_" doc:name="JSON To Xml&lt;remarcarEntrega&gt;"/>
+        <ws:consumer config-ref="Web_Service_Consumer1" operation="remarcarEntrega" doc:name="Web Service Consumer"/>
+        <data-mapper:transform config-ref="Xml_remarcarEntregaResponse__To_Pojo" doc:name="Xml&lt;remarcarEntregaResponse&gt; To Pojo"/>
+        <component class="TratamentoEmail" doc:name="Java"/>
+        <smtp:outbound-endpoint host="smtp.gmail.com" port="587" user="anderson.mends%40gmail.com" password="Sephir86!" connector-ref="Gmail" to="anderson.mends@gmail.com" from="Melhor Entrega" subject="Entrega Remarcada " responseTimeout="10000" doc:name="Entrega Notification"/>
+    </flow>
+    <flow name="cancelarEntrega">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/cancelarEntrega" doc:name="HTTP"/>
+        <data-mapper:transform config-ref="JSON_To_Xml_cancelarEntrega_" doc:name="JSON To Xml&lt;cancelarEntrega&gt;"/>
+        <ws:consumer config-ref="Web_Service_Consumer1" operation="cancelarEntrega" doc:name="Web Service Consumer"/>
+        <data-mapper:transform config-ref="Xml_cancelarEntregaResponse__To_Pojo" doc:name="Xml&lt;cancelarEntregaResponse&gt; To Pojo"/>
+        <component class="TratamentoEmail" doc:name="Java"/>
+        <smtp:outbound-endpoint host="smtp.gmail.com" port="587" user="anderson.mends%40gmail.com" password="Sephir86!" connector-ref="Gmail" to="anderson.mends@gmail.com" from="Melhor Entrega" subject="Entrega Cancelada " responseTimeout="10000" doc:name="Entrega Notification"/>
+    </flow>
+    <flow name="validarCEP">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/validarCEP" doc:name="HTTP"/>
+        <data-mapper:transform config-ref="JSON_To_Xml_consultaCEP_" doc:name="JSON To Xml&lt;consultaCEP&gt;"/>
+        <ws:consumer config-ref="WSCEP" operation="consultaCEP" doc:name="Web Service Consumer"/>
+        <data-mapper:transform config-ref="Xml_consultaCEPResponse__To_JSON" doc:name="Xml&lt;consultaCEPResponse&gt; To JSON"/>
+    </flow>
+    <flow name="entregaConcluida">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/entregaConcluida" doc:name="HTTP"/>
+        <data-mapper:transform config-ref="JSON_To_Xml_setEntregaConcluida_" doc:name="JSON To Xml&lt;setEntregaConcluida&gt;"/>
+        <ws:consumer config-ref="Web_Service_Consumer1" operation="setEntregaConcluida" doc:name="Web Service Consumer"/>
+        <data-mapper:transform config-ref="Xml_setEntregaConcluidaResponse__To_Pojo" doc:name="Xml&lt;setEntregaConcluidaResponse&gt; To Pojo"/>
+        <component class="TratamentoEmail" doc:name="Java"/>
+        <smtp:outbound-endpoint host="smtp.gmail.com" port="587" user="anderson.mends%40gmail.com" password="Sephir86!" connector-ref="Gmail" to="anderson.mends@gmail.com" from="Melhor Entrega" subject="Entrega Concluida " responseTimeout="10000" doc:name="Entrega Notification"/>
+    </flow>
+    <flow name="associarEntrega">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/associarEntrega" doc:name="HTTP"/>
+        <data-mapper:transform config-ref="JSON_To_Xml_associarEntregaAoEntregador_" doc:name="JSON To Xml&lt;associarEntregaAoEntregador&gt;"/>
+        <ws:consumer config-ref="Web_Service_Consumer1" operation="associarEntregaAoEntregador" doc:name="Web Service Consumer"/>
+    </flow>
+</mule>

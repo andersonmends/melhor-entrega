@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><Graph __version="3.5.0" author="Anderson Mendes" created="Mon Jul 20 14:01:23 GMT-03:00 2015" description="Xml&lt;logarVendedorResponse&gt; To XML" guiVersion="3.4.4.P" id="1437416074785" licenseCode="Unlicensed" licenseType="Unknown" modified="Mon Jul 20 14:01:23 GMT-03:00 2015" modifiedBy="Anderson Mendes" name="Xml_logarVendedorResponse__To_XML" revision="1.0" showComponentDetails="false">
+<Global>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:logarVendedorResponse" _dataStructure="OBJECT" _id="__id" _type="Input" id="838eea00-ccff-4c80-a17f-563d0e064597">
+<Record fieldDelimiter="," name="logarVendedorResponse" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __implementationClass="java.lang.String" __index="0" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:logarVendedorResponse/return/cargo" containerType="SINGLE" label="cargo" name="cargo" type="string"/>
+<Field __implementationClass="java.lang.String" __index="1" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:logarVendedorResponse/return/cpf" containerType="SINGLE" label="cpf" name="cpf" type="string"/>
+<Field __implementationClass="java.lang.String" __index="2" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:logarVendedorResponse/return/endereco" containerType="SINGLE" label="endereco" name="endereco" type="string"/>
+<Field __implementationClass="java.lang.String" __index="3" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:logarVendedorResponse/return/nome" containerType="SINGLE" label="nome" name="nome" type="string"/>
+<Field __implementationClass="java.lang.String" __index="4" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:logarVendedorResponse/return/senha" containerType="SINGLE" label="senha" name="senha" type="string"/>
+<Field __implementationClass="java.lang.String" __index="5" __sourcePath="{http://service.sistemalegado.com.br/=ns0}/ns0:logarVendedorResponse/return/telefone" containerType="SINGLE" label="telefone" name="telefone" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/logarVendedorResponse" _dataStructure="OBJECT" _id="__id" _type="Output" id="29fcedee-c627-45a0-be87-85cc531c5374">
+<Record fieldDelimiter="," name="logarVendedorResponse" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="0" __sourcePath="{}/logarVendedorResponse/return/cargo" containerType="SINGLE" label="cargo" name="cargo" type="string"/>
+<Field __index="1" __sourcePath="{}/logarVendedorResponse/return/cpf" containerType="SINGLE" label="cpf" name="cpf" type="string"/>
+<Field __index="2" __sourcePath="{}/logarVendedorResponse/return/endereco" containerType="SINGLE" label="endereco" name="endereco" type="string"/>
+<Field __index="3" __sourcePath="{}/logarVendedorResponse/return/nome" containerType="SINGLE" label="nome" name="nome" type="string"/>
+<Field __index="4" __sourcePath="{}/logarVendedorResponse/return/senha" containerType="SINGLE" label="senha" name="senha" type="string"/>
+<Field __index="5" __sourcePath="{}/logarVendedorResponse/return/telefone" containerType="SINGLE" label="telefone" name="telefone" type="string"/>
+</Record>
+</Metadata>
+<Dictionary>
+<Entry id="DictionaryEntry0" input="true" name="inputPayload" output="false" type="object"/>
+<Entry id="DictionaryEntry1" input="false" name="outputPayload" output="true" type="object"/>
+</Dictionary>
+</Global>
+<Phase number="0">
+<Node cacheInMemory="true" charset="UTF-8" enabled="enabled" fileURL="dict:outputPayload" guiName="XML WRITER" guiX="900" guiY="20" id="EXT_XML_WRITER0" type="EXT_XML_WRITER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<logarVendedorResponse xmlns:clover="http://www.cloveretl.com/ns/xmlmapping" clover:inPort="0">
+  <return>
+    <cargo>$0.cargo</cargo>
+    <cpf>$0.cpf</cpf>
+    <endereco>$0.endereco</endereco>
+    <nome>$0.nome</nome>
+    <senha>$0.senha</senha>
+    <telefone>$0.telefone</telefone>
+  </return>
+</logarVendedorResponse>]]></attr>
+<attr name="_data_format"><![CDATA[XML]]></attr>
+</Node>
+<Node enabled="enabled" guiName="Foreach 'ns0:logarVendedorResponse' -&gt; 'logarVendedorResponse'" guiX="460" guiY="20" id="FOREACH_NS0_LOGAR_VENDEDOR_RESPONSE_LOGAR_VENDEDOR_RESPONSE" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+//END -> DO NOT REMOVE
+output.cargo = input.cargo;
+output.cpf = input.cpf;
+output.endereco = input.endereco;
+output.nome = input.nome;
+output.senha = input.senha;
+output.telefone = input.telefone;
+]]></attr>
+</Node>
+<Node charset="UTF-8" enabled="enabled" fileURL="dict:inputPayload" guiName="XML READER" guiX="20" guiY="20" id="XML_READER0" type="XML_READER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context namespacePaths="ns0=&quot;http://service.sistemalegado.com.br/&quot;" outPort="0" sequenceField="__id" xpath="/ns0:logarVendedorResponse">
+  <Mapping cloverField="cargo" trim="true" xpath="return/cargo"/>
+  <Mapping cloverField="cpf" trim="true" xpath="return/cpf"/>
+  <Mapping cloverField="endereco" trim="true" xpath="return/endereco"/>
+  <Mapping cloverField="nome" trim="true" xpath="return/nome"/>
+  <Mapping cloverField="senha" trim="true" xpath="return/senha"/>
+  <Mapping cloverField="telefone" trim="true" xpath="return/telefone"/>
+</Context>
+]]></attr>
+<attr name="_data_format"><![CDATA[XML]]></attr>
+<attr name="__metadata"><![CDATA[true]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="FOREACH_NS0_LOGAR_VENDEDOR_RESPONSE_LOGAR_VENDEDOR_RESPONSE:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="29fcedee-c627-45a0-be87-85cc531c5374" outPort="Port 0 (out)" toNode="EXT_XML_WRITER0:0"/>
+<Edge debugMode="true" fromNode="XML_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="838eea00-ccff-4c80-a17f-563d0e064597" outPort="Port 0 (out)" toNode="FOREACH_NS0_LOGAR_VENDEDOR_RESPONSE_LOGAR_VENDEDOR_RESPONSE:0"/>
+</Phase>
+</Graph>
