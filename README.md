@@ -115,68 +115,71 @@ Dessa forma, para executar os casos de testes, é recomendado seguir os seguinte
 3.	Executar os casos de testes.
 
 Como o método agendarEntrega tem como parâmetros os atributos id_venda e data, as partições de equivalência das tabelas acima foram utilizadas para criar os seguintes casos de testes:
-(Obs.: as tuplas abaixo estão estruturadas assim: 
-< nome_do_método (parâmetros), retorno_esperado, retorno_recebido > )
+
+(Obs.: as tuplas abaixo estão estruturadas assim: </BR>
+< nome_do_método (parâmetros), retorno_esperado, retorno_recebido > )</BR></BR>
 
 
-Casos inválidos
-1 < agendarEntrega (11, 11/08/15),   		"false", "true" >
-2 < agendarEntrega (1000000, 11/08/15),   	"false", "true" >
-3 < agendarEntrega (-1, 11/08/15),    		"false", "false" >
-4 < agendarEntrega (-1000000, 11/08/15), 	"false", "false" >
-5 < agendarEntrega (0, 11/08/15),     		"false", "false" >
-6 < agendarEntrega (1, 111/08/15),    		"false", "false" >
-7< agendarEntrega (1, 11/08/A),      		"false", "false" >
-8 < agendarEntrega (111, 11/08/2015), 		"false", "false" >
-9 < agendarEntrega (A, 11/08/15), 		"false", "false" >
-10< agendarEntrega (Texto, 11/08/15), 		"false", "false" >
-11< agendarEntrega (1, 11/07/1915), 		"false", "false" >
-12< agendarEntrega (1, 15/07/15), 		"false", "false" >
-13< agendarEntrega (1, 17/07/15), 		"false", "false" >
-14< agendarEntrega (1, 15/07/15), 		"false", "false" >
-15< agendarEntrega (1, 18/08/15), 		"false", "true" >
-16< agendarEntrega (1, A), 			"false", "false" >
-17< agendarEntrega (1, Texto), 			"false", "false" >
-18< agendarEntrega (1, 16/07/15), 		"false", "false" >
+Casos inválidos</BR>
+1 < agendarEntrega (11, 11/08/15),   		"false", "true" ></BR>
+2 < agendarEntrega (1000000, 11/08/15),   	"false", "true" ></BR>
+3 < agendarEntrega (-1, 11/08/15),    		"false", "false" ></BR>
+4 < agendarEntrega (-1000000, 11/08/15), 	"false", "false" ></BR>
+5 < agendarEntrega (0, 11/08/15),     		"false", "false" ></BR>
+6 < agendarEntrega (1, 111/08/15),    		"false", "false" ></BR>
+7< agendarEntrega (1, 11/08/A),      		"false", "false" ></BR>
+8 < agendarEntrega (111, 11/08/2015), 		"false", "false" ></BR>
+9 < agendarEntrega (A, 11/08/15), 		"false", "false" ></BR>
+10< agendarEntrega (Texto, 11/08/15), 		"false", "false" ></BR>
+11< agendarEntrega (1, 11/07/1915), 		"false", "false" ></BR>
+12< agendarEntrega (1, 15/07/15), 		"false", "false" ></BR>
+13< agendarEntrega (1, 17/07/15), 		"false", "false" ></BR>
+14< agendarEntrega (1, 15/07/15), 		"false", "false" ></BR>
+15< agendarEntrega (1, 18/08/15), 		"false", "true" ></BR>
+16< agendarEntrega (1, A), 			"false", "false" ></BR>
+17< agendarEntrega (1, Texto), 			"false", "false" ></BR>
+18< agendarEntrega (1, 16/07/15), 		"false", "false" ></BR></BR>
 
-Casos válidos:
+Casos válidos:</BR>
 19< agendarEntrega (1, 17/08/15), 		“true”, “true” >
 20< agendarEntrega (1, 11/08/15), 		“true”, “true” >
 21< agendarEntrega (1, 11/08/2015),		“true”, “true” > 
 
 Os casos de teste em que o retorno não foram o esperado correspondem as situações em que o sistema não funcionou de forma adequada, são eles: 1, 2, 15. Os demais, o sistema funcionou bem diante das entradas passadas.
 
-Analisando os casos de testes criados para a método cadastarEntrega(Entrega entrega), tem-se:
+Analisando os casos de testes criados para a método cadastarEntrega(Entrega entrega), tem-se:</BR>
 
-(OBS.: como a classe Entrega possui vários atributos, será considerados apenas os que variam em relação a analise de particionamento de equivalência, são eles: id_venda, dataCadastro,  cpf. )
+(OBS.: como a classe Entrega possui vários atributos, será considerados apenas os que variam em relação a analise de particionamento de equivalência, são eles: id_venda, dataCadastro,  cpf. )</BR></BR>
 
-1< cadastrarEntrega(054.598.914-00, -1000000, 16/07/2015),   null, null > 
-2< cadastrarEntrega(054.598.914-00, -1, 16/07/2015),     	null, null >
-3< cadastrarEntrega(054.598.914-00, 0, 16/07/2015),      	null, null >
-4< cadastrarEntrega(054.598.914-00, 1000000, 16/07/2015),null, true> 
-5< cadastrarEntrega(054.598.914-00, A, 16/07/2015),      	null, null >
-6< cadastrarEntrega(054.598.914-00, Texto, 16/07/2015),  	null, null >
-7< cadastrarEntrega(054.598.914-00, 1, 16/07/2015),      	true, true > 
-8< cadastrarEntrega(054.598.914-00, 1, 15/07/2015),      	null, null >
-9< cadastrarEntrega(054.598.914-00, 1, 15/07/1915),      	null, null >
-10< cadastrarEntrega(054.598.914-00, 2, 16/07/2015),      	true, true > 
-11< cadastrarEntrega(054.598.914-00, 3, 17/07/2015),      	null, null > 
-12< cadastrarEntrega(054.598.914-00, 4, 15/08/2015),      	null, null > 
-13< cadastrarEntrega(054.598.914-00, 5, 16/08/2015),      	null, null > 
-15< cadastrarEntrega(054.598.914-00, 1, A),               	null, null > 
-16< cadastrarEntrega(054.598.914-00, 1, Texto),           	null, null >
-17< cadastrarEntrega(054.598.914-00, 1, 32/07/2015),      	null, null >
-18< cadastrarEntrega(054.598.914-00, 1, 15/13/2015),      	null, null >
-19< cadastrarEntrega(054.598.914-00, 1, 15/12/12015),     	null, null >
-20< cadastrarEntrega("", 1, 16/12/12015),                 		null, null >
-21< cadastrarEntrega(05459891400, 1, 16/12/12015),        	true, true >
-22< cadastrarEntrega(054.598.914-00, 1, 16/12/12015),     	true, true >
-23< cadastrarEntrega(C54.598.914-00, 1, 16/12/12015),     	null, null >
-24< cadastrarEntrega(054.598.914-0A, 1, 16/12/12015),     	null, null >
-25< cadastrarEntrega(~54.598.914-00, 1, 16/12/12015),     	null, null >
-26< cadastrarEntrega(054.598.914-~0, 1, 16/12/12015),     	null, null >
+1< cadastrarEntrega(054.598.914-00, -1000000, 16/07/2015),   null, null > </BR>
+2< cadastrarEntrega(054.598.914-00, -1, 16/07/2015),     	null, null ></BR>
+3< cadastrarEntrega(054.598.914-00, 0, 16/07/2015),      	null, null ></BR>
+4< cadastrarEntrega(054.598.914-00, 1000000, 16/07/2015),null, true> </BR>
+5< cadastrarEntrega(054.598.914-00, A, 16/07/2015),      	null, null ></BR>
+6< cadastrarEntrega(054.598.914-00, Texto, 16/07/2015),  	null, null ></BR>
+7< cadastrarEntrega(054.598.914-00, 1, 16/07/2015),      	true, true > </BR>
+8< cadastrarEntrega(054.598.914-00, 1, 15/07/2015),      	null, null ></BR>
+9< cadastrarEntrega(054.598.914-00, 1, 15/07/1915),      	null, null ></BR>
+10< cadastrarEntrega(054.598.914-00, 2, 16/07/2015),      	true, true > </BR>
+11< cadastrarEntrega(054.598.914-00, 3, 17/07/2015),      	null, null > </BR>
+12< cadastrarEntrega(054.598.914-00, 4, 15/08/2015),      	null, null > </BR>
+13< cadastrarEntrega(054.598.914-00, 5, 16/08/2015),      	null, null > </BR>
+15< cadastrarEntrega(054.598.914-00, 1, A),               	null, null > </BR>
+16< cadastrarEntrega(054.598.914-00, 1, Texto),           	null, null ></BR>
+17< cadastrarEntrega(054.598.914-00, 1, 32/07/2015),      	null, null ></BR>
+18< cadastrarEntrega(054.598.914-00, 1, 15/13/2015),      	null, null ></BR>
+19< cadastrarEntrega(054.598.914-00, 1, 15/12/12015),     	null, null ></BR>
+20< cadastrarEntrega("", 1, 16/12/12015),                 		null, null ></BR>
+21< cadastrarEntrega(05459891400, 1, 16/12/12015),        	true, true ></BR>
+22< cadastrarEntrega(054.598.914-00, 1, 16/12/12015),     	true, true ></BR>
+23< cadastrarEntrega(C54.598.914-00, 1, 16/12/12015),     	null, null ></BR>
+24< cadastrarEntrega(054.598.914-0A, 1, 16/12/12015),     	null, null ></BR>
+25< cadastrarEntrega(~54.598.914-00, 1, 16/12/12015),     	null, null ></BR>
+26< cadastrarEntrega(054.598.914-~0, 1, 16/12/12015),     	null, null ></BR></BR>
+
 //testa se é possível adicionar se uma entrega cadastrada pode ser adicionada no banco
-27< cadastrarEntrega(054.598.914-00, 1, 16/12/12015),     	null, true > 
+
+27< cadastrarEntrega(054.598.914-00, 1, 16/12/12015),     	null, true > </BR></BR>
 
 Os casos em destaque não funcionaram bem, conforme o esperado. Diante desses testes, verificou-se que o sistema não está preparado para verificar se uma determinada entrega já está cadastrada no banco de entregas (caso 27) ou se uma venda foi realizada e está cadastrada no banco do sistema que gerencia as vendas (caso 4).
 
